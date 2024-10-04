@@ -1,9 +1,9 @@
 ;;; org-present.el --- Minimalist presentation minor-mode for Emacs org-mode.
 ;;
-;; Copyright (C) 2012 by Ric Lister
+;; Copyright (C) 2012 by Ric Lister, 2024 Pedro Gomes Branquinho
 ;;
-;; Author: Ric Lister
-;; Version: 0.1
+;; Author: Ric Lister, Pedro Gomes Branquinho
+;; Version: 0.2
 ;; Package-Requires: ((org "7"))
 ;; URL: https://github.com/rlister/org-present
 ;;
@@ -112,7 +112,7 @@
       (progn
         (widen)
         (org-present-top)
-        (org-get-last-sibling)))
+        (org-get-previous-sibling)))
   (org-present-narrow)
   (org-present-run-after-navigate-functions))
 
@@ -121,7 +121,7 @@
   (if (org-current-level)
       (progn
         (org-narrow-to-subtree)
-        (show-all))
+        (outline-show-all))
     ;; else narrow to area before first heading
     (outline-next-heading)
     (narrow-to-region (point-min) (point))
